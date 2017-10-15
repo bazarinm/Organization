@@ -5,4 +5,7 @@ Manager::Manager(std::string first_name_, std::string last_name_, std::string em
 	: Employee(first_name_, last_name_, email_, salary_)
 {}
 
-
+std::vector<Teamleader*> Manager::ListSubordinates()
+{
+	return subordinates;
+}
