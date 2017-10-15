@@ -112,7 +112,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Accountant.h" />
-    <ClInclude Include="Boss.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="HR.h" />
     <ClInclude Include="Manager.h" />
@@ -120,10 +119,7 @@
     <ClInclude Include="Teamleader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Accountant.cpp" />
-    <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="HR.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Programmer.cpp" />
     <ClCompile Include="Main.cpp" />

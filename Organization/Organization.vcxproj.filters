@@ -33,9 +33,6 @@
     <ClInclude Include="Accountant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Boss.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Employee.cpp">
@@ -50,16 +47,7 @@
     <ClCompile Include="Programmer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Accountant.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
