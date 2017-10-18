@@ -11,6 +11,7 @@ public:
 
 	void AppointSupervisor(Teamleader* new_supervisor);
 	void RemoveSupervisor();
+	Teamleader* GetSupervisor();
 private:
 	Teamleader* supervisor;
 };

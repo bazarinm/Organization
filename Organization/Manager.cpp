@@ -27,3 +27,8 @@ void Manager::RemoveSubordinate(Teamleader* subordinate)
 			break;
 		}
 }
+
+std::vector<Teamleader*> Manager::ListSubordinates()
+{
+	return subordinates;
+}

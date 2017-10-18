@@ -21,3 +21,8 @@ void Programmer::RemoveSupervisor()
 		supervisor->RemoveSubordinate(this);
 	}
 }
+
+Teamleader* Programmer::GetSupervisor()
+{
+	return supervisor;
+}

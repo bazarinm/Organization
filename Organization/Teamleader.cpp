@@ -47,4 +47,13 @@ void Teamleader::RemoveSupervisor()
 	}
 }
 
+std::vector<Programmer*> Teamleader::ListSubordinates()
+{
+	return subordinates;
+}
+
+Manager* Teamleader::GetSupervisor()
+{
+	return supervisor;
+}
 

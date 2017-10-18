@@ -15,6 +15,8 @@ public:
 	void AppointSupervisor(Manager* new_supervisor);
 	void RemoveSubordinate(Programmer* subordinate);
 	void RemoveSupervisor();
+	std::vector<Programmer*> ListSubordinates();
+	Manager* GetSupervisor();
 private:
 	Manager* supervisor;
 	std::vector<Programmer*> subordinates;
