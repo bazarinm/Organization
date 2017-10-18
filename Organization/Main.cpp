@@ -7,14 +7,19 @@
 #include "Programmer.h"
 #include "Accountant.h"
 #include "HR.h"
+#include "Company.h"
 
 void main()
 {
+	Company my_company;
 	std::vector<HR*> for_hr;
-	Manager person("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
-	Manager person2("Mikhail2", "Bazarin2", "bazarinm@gmail.com2", 40002);
-	Teamleader loh("Kek", "lol", "nomail", 888);
-	loh.AppointSupervisor(&person);
-	person.AppointSubordinate(&loh);
-	std::cin.get();
+	for_hr.push_back(my_company.CreateManager("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000));
+	for_hr.push_back(my_company.CreateTeamleader(0, "Kek", "lol", "nomail", 888));
+	Manager ya("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
+	Teamleader on(&ya, "Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
+	ya.RemoveSubordinate(&on);
+	std::cout << for_hr.at(0)->GetPersonalInfo() << std::endl;
+	std::cout << for_hr.at(1)->GetPersonalInfo() << std::endl;
+
+	int n; std::cin >> n;
 }

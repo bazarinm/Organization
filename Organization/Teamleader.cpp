@@ -42,8 +42,9 @@ void Teamleader::RemoveSubordinate(Programmer* subordinate)
 void Teamleader::RemoveSupervisor()
 {
 	if (supervisor != nullptr) {
+		Manager* temp_supervisor = supervisor;
 		supervisor = nullptr;
-		supervisor->RemoveSubordinate(this);
+		temp_supervisor->RemoveSubordinate(this);
 	}
 }
 

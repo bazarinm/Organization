@@ -4,6 +4,17 @@
 #include "Manager.h"
 #include "Programmer.h"
 
+Company::~Company()
+{
+	int i;
+	for (i = 0; i < managers.size(); i++)
+		DeleteManager(i);
+	for (i = 0; i < teamleaders.size(); i++)
+		DeleteTeamleader(i);
+	for (i = 0; i < programmers.size(); i++)
+		DeleteProgrammer(i);
+}
+
 Manager* Company::CreateManager(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage)
 {
 	Manager* new_manager = new Manager(first_name, last_name, email, wage);
@@ -35,7 +46,6 @@ void Company::DeleteManager(int manager_)
 	for (jt = subordinates.begin(); jt != subordinates.end(); jt++)
 		(*jt)->RemoveSupervisor();
 	delete manager;
-	std::vector<Manager*>::iterator it;
 	std::vector<Manager*>::iterator it = managers.begin();
 	managers.erase(it + manager_);
 }

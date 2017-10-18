@@ -3,7 +3,7 @@
 
 Programmer::Programmer(Teamleader* supervisor_, const std::string& first_name_, const std::string& last_name_, const std::string& email_, unsigned int wage_)
 	: Employee(first_name_, last_name_, email_, wage_) {
-	AppointSupervisor(supervisor);
+	AppointSupervisor(supervisor_);
 }
 
 void Programmer::AppointSupervisor(Teamleader* new_supervisor)
@@ -17,8 +17,9 @@ void Programmer::AppointSupervisor(Teamleader* new_supervisor)
 void Programmer::RemoveSupervisor()
 {
 	if (supervisor != nullptr) {
+		Teamleader* temp_supervisor = supervisor;
 		supervisor = nullptr;
-		supervisor->RemoveSubordinate(this);
+		temp_supervisor->RemoveSubordinate(this);
 	}
 }
 

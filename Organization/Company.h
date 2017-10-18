@@ -10,6 +10,8 @@
 class Company
 {
 public:
+	~Company();
+
 	Manager* CreateManager(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
 	Teamleader* CreateTeamleader(int supervisor, const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
 	Programmer* CreateProgrammer(int supervisor, const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
@@ -20,6 +22,10 @@ public:
 
 	void AppointToManager(int manager, int teamleader);
 	void AppointToTeamleader(int teamleader, int programmer);
+
+	std::vector<Manager*> ListManagers();
+	std::vector<Teamleader*> ListTeamleaders();
+	std::vector<Programmer*> ListProgrammers();
 private:
 	std::string name;
 	std::vector<Manager*> managers;
