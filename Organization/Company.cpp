@@ -9,7 +9,7 @@ Company::Company()
 	: name("My Company")
 {}
 
-Company::Company(std::string& name_)
+Company::Company(const std::string& name_)
 	: name(name_)
 {}
 

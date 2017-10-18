@@ -11,7 +11,7 @@ class Company
 {
 public:
 	Company();
-	Company(std::string& name);
+	Company(const std::string& name);
 	~Company();
 
 	Manager* CreateManager(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
