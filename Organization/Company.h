@@ -38,11 +38,16 @@ public:
 
 	Manager* GetTeamleaderSupervisor(int teamleader);
 	Teamleader* GetProgrammerSupervisor(int programmer);
+
+	std::vector<HR*> GetHrAccess();
+	std::vector<Accountant*> GetAccountingAcess();
 private:
 	std::string name;
 	std::vector<Manager*> managers;
 	std::vector<Teamleader*> teamleaders;
 	std::vector<Programmer*> programmers;
+	std::vector<HR*> for_hr;
+	std::vector<Accountant*> for_acc;
 };
 
 #endif

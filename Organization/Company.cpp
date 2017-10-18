@@ -28,6 +28,8 @@ Manager* Company::CreateManager(const std::string& first_name, const std::string
 {
 	Manager* new_manager = new Manager(first_name, last_name, email, wage);
 	managers.push_back(new_manager);
+	for_hr.push_back(new_manager);
+	for_acc.push_back(new_manager);
 	return new_manager;
 }
 
@@ -36,6 +38,8 @@ Teamleader* Company::CreateTeamleader(int supervisor_, const std::string& first_
 	Manager* supervisor = managers.at(supervisor_);
 	Teamleader* new_teamleader = new Teamleader(supervisor, first_name, last_name, email, wage);
 	teamleaders.push_back(new_teamleader);
+	for_hr.push_back(new_teamleader);
+	for_acc.push_back(new_teamleader);
 	return new_teamleader;
 }
 
@@ -44,6 +48,8 @@ Programmer* Company::CreateProgrammer(int supervisor_, const std::string& first_
 	Teamleader* supervisor = teamleaders.at(supervisor_);
 	Programmer* new_programmer = new Programmer(supervisor, first_name, last_name, email, wage);
 	programmers.push_back(new_programmer);
+	for_hr.push_back(new_programmer);
+	for_acc.push_back(new_programmer);
 	return new_programmer;
 }
 
@@ -57,6 +63,18 @@ void Company::DeleteManager(int manager_)
 	delete manager;
 	std::vector<Manager*>::iterator it = managers.begin();
 	managers.erase(it + manager_);
+	std::vector<HR*>::iterator kt;
+	for (kt = for_hr.begin(); kt != for_hr.end(); kt++)
+		if (*kt == manager) {
+			for_hr.erase(kt);
+			break;
+		}
+	std::vector<Accountant*>::iterator lt;
+	for (lt = for_acc.begin(); lt != for_acc.end(); lt++)
+		if (*lt == manager) {
+			for_acc.erase(lt);
+			break;
+		}
 }
 
 void Company::DeleteTeamleader(int teamleader_)
@@ -70,6 +88,18 @@ void Company::DeleteTeamleader(int teamleader_)
 	delete teamleader;
 	std::vector<Teamleader*>::iterator it = teamleaders.begin();
 	teamleaders.erase(it + teamleader_);
+	std::vector<HR*>::iterator kt;
+	for (kt = for_hr.begin(); kt != for_hr.end(); kt++)
+		if (*kt == teamleader) {
+			for_hr.erase(kt);
+			break;
+		}
+	std::vector<Accountant*>::iterator lt;
+	for (lt = for_acc.begin(); lt != for_acc.end(); lt++)
+		if (*lt == teamleader) {
+			for_acc.erase(lt);
+			break;
+		}
 }
 
 void Company::DeleteProgrammer(int programmer_)
@@ -79,6 +109,18 @@ void Company::DeleteProgrammer(int programmer_)
 	delete programmer;
 	std::vector<Programmer*>::iterator it = programmers.begin();
 	programmers.erase(it + programmer_);
+	std::vector<HR*>::iterator kt;
+	for (kt = for_hr.begin(); kt != for_hr.end(); kt++)
+		if (*kt == programmer) {
+			for_hr.erase(kt);
+			break;
+		}
+	std::vector<Accountant*>::iterator lt;
+	for (lt = for_acc.begin(); lt != for_acc.end(); lt++)
+		if (*lt == programmer) {
+			for_acc.erase(lt);
+			break;
+		}
 }
 
 void Company::AppointToManager(int manager_, int teamleader_)
@@ -146,4 +188,14 @@ Teamleader* Company::GetProgrammerSupervisor(int programmer_)
 {
 	Programmer* programmer = programmers.at(programmer_);
 	return programmer->GetSupervisor();
+}
+
+std::vector<HR*> Company::GetHrAccess()
+{
+	return for_hr;
+}
+
+std::vector<Accountant*> Company::GetAccountingAcess()
+{
+	return for_acc;
 }
