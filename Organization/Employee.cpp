@@ -3,7 +3,7 @@
 
 
 Employee::Employee(const std::string& first_name_, const std::string& last_name_, const std::string& email_, unsigned int wage)
-	: first_name(first_name_), last_name(last_name_), email(email_), wage(wage)
+	: first_name(first_name_), last_name(last_name_), email(email_), wage(wage), experience(0)
 {}
 
 
