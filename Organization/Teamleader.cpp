@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include "Teamleader.h"
 #include "Programmer.h"
 #include "Manager.h"

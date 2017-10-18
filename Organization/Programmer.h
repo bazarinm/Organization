@@ -1,6 +1,8 @@
 #ifndef PROGRAMMER_H
 #define PROGRAMMER_H
 
+#include <string>
+#include <vector>
 #include "Employee.h"
 class Teamleader;
 

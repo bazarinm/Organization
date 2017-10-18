@@ -1,8 +1,17 @@
 #include <vector>
+#include <string>
 #include "Company.h"
 #include "Teamleader.h"
 #include "Manager.h"
 #include "Programmer.h"
+
+Company::Company()
+	: name("My Company")
+{}
+
+Company::Company(std::string& name_)
+	: name(name_)
+{}
 
 Company::~Company()
 {

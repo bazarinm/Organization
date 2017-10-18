@@ -2,6 +2,7 @@
 #define TEAMLEADER_H
 
 #include <vector>
+#include <string>
 #include "Employee.h"
 class Manager;
 class Programmer;
