@@ -26,6 +26,16 @@ public:
 	std::vector<Manager*> ListManagers();
 	std::vector<Teamleader*> ListTeamleaders();
 	std::vector<Programmer*> ListProgrammers();
+
+	Manager* GetManager(int manager);
+	Teamleader* GetTeamleader(int teamleader);
+	Programmer* GetProgrammer(int programmer);
+
+	std::vector<Teamleader*> ListManagerSubordinates(int manager);
+	std::vector<Programmer*> ListTeamleaderSubordinates(int teamleader);
+
+	Manager* GetTeamleaderSupervisor(int teamleader);
+	Teamleader* GetProgrammerSupervisor(int programmer);
 private:
 	std::string name;
 	std::vector<Manager*> managers;

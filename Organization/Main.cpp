@@ -13,8 +13,8 @@ void main()
 {
 	Company my_company;
 	std::vector<HR*> for_hr;
-	//for_hr.push_back(my_company.CreateManager("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000));
-	//for_hr.push_back(my_company.CreateTeamleader(0, "Kek", "lol", "nomail", 888));
+	for_hr.push_back(my_company.CreateManager("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000));
+	for_hr.push_back(my_company.CreateTeamleader(0, "Kek", "lol", "nomail", 888));
 	Manager ya("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
 	Teamleader on(&ya, "Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
 	ya.RemoveSubordinate(&on);

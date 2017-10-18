@@ -71,3 +71,70 @@ void Company::DeleteProgrammer(int programmer_)
 	std::vector<Programmer*>::iterator it = programmers.begin();
 	programmers.erase(it + programmer_);
 }
+
+void Company::AppointToManager(int manager_, int teamleader_)
+{
+	Manager* manager = managers.at(manager_);
+	Teamleader* teamleader = teamleaders.at(teamleader_);
+	manager->AppointSubordinate(teamleader);
+}
+
+void Company::AppointToTeamleader(int teamleader_, int programmer_)
+{
+	Teamleader* teamleader = teamleaders.at(teamleader_);
+	Programmer* programmer = programmers.at(programmer_);
+	teamleader->AppointSubordinate(programmer);
+}
+
+std::vector<Manager*> Company::ListManagers()
+{
+	return managers;
+}
+
+std::vector<Teamleader*> Company::ListTeamleaders()
+{
+	return teamleaders;
+}
+
+std::vector<Programmer*> Company::ListProgrammers()
+{
+	return programmers;
+}
+
+Manager* Company::GetManager(int manager_)
+{
+	return managers.at(manager_);
+}
+
+Teamleader* Company::GetTeamleader(int teamleader_)
+{
+	return teamleaders.at(teamleader_);
+}
+
+Programmer* Company::GetProgrammer(int programmer_)
+{
+	return programmers.at(programmer_);
+}
+
+std::vector<Teamleader*> Company::ListManagerSubordinates(int manager_)
+{
+	Manager* manager = managers.at(manager_);
+	return manager->ListSubordinates();
+}
+
+std::vector<Programmer*> Company::ListTeamleaderSubordinates(int teamleader_)
+{
+	Teamleader* teamleader = teamleaders.at(teamleader_);
+	return teamleader->ListSubordinates();
+}
+
+Manager* Company::GetTeamleaderSupervisor(int teamleader_)
+{
+	Teamleader* teamleader = teamleaders.at(teamleader_);
+	return teamleader->GetSupervisor();
+}
+Teamleader* Company::GetProgrammerSupervisor(int programmer_)
+{
+	Programmer* programmer = programmers.at(programmer_);
+	return programmer->GetSupervisor();
+}
