@@ -3,17 +3,18 @@
 
 #include <vector>
 #include "Employee.h"
+#include "Appointment.h"
 #include "Programmer.h"
 
 class Manager;
 
-class Teamleader : public Employee
+class Teamleader : public Employee, public Appointment
 {
 public:
 	Teamleader(std::string first_name, std::string last_name, std::string email, unsigned int salary);
+
 private:
-	Manager* supervisor;
-	std::vector<Programmer*> subordinates;
+
 };
 
 #endif
