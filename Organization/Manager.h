@@ -3,15 +3,16 @@
 
 #include <vector>
 #include "Employee.h"
-#include "Appointment.h"
-#include "Teamleader.h"
+class Teamleader;
 
-class Manager : public Employee, public Appointment
+class Manager : public Employee
 {
 public:
-	Manager(std::string first_name, std::string last_name, std::string email, unsigned int salary);
+	Manager(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
 
+	void AppointSubordinate(Teamleader* new_subordinate);
 private:
+	std::vector<Teamleader*> subordinates;
 };
 
 #endif

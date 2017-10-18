@@ -9,15 +9,20 @@
 class Employee: public Accountant, public HR
 {
 public:
-	Employee(std::string first_name, std::string last_name, std::string email, unsigned int salary);
+	Employee(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
 
-	virtual int GetSalaryInfo() override;
+	virtual int GetWage() override;
+	virtual int GetExperience() override;
+	virtual int CalculateSalary() override;
+	virtual void SetWage(int new_wage) override;
+	virtual void UpdateExperience(int new_experience) override;
+
 	virtual std::string GetPersonalInfo() override;
 private:
 	std::string first_name;
 	std::string last_name;
 	std::string email;
-	unsigned int salary;
+	unsigned int wage;
 	unsigned int experience;
 };
 
