@@ -5,6 +5,7 @@
 
 Teamleader::Teamleader(Manager* supevisor_, const std::string& first_name_, const std::string& last_name_, const std::string& email_, unsigned int wage_)
 	: Employee(first_name_, last_name_, email_, wage_) {
+	supervisor = nullptr;
 	AppointSupervisor(supevisor_);
 }
 
@@ -23,6 +24,7 @@ void Teamleader::AppointSubordinate(Programmer* new_subordinate)
 void Teamleader::AppointSupervisor(Manager* new_supervisor)
 {
 	if (supervisor != new_supervisor) {
+		RemoveSupervisor();
 		supervisor = new_supervisor;
 		new_supervisor->AppointSubordinate(this);
 	}

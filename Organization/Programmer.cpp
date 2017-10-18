@@ -9,6 +9,7 @@ Programmer::Programmer(Teamleader* supervisor_, const std::string& first_name_, 
 void Programmer::AppointSupervisor(Teamleader* new_supervisor)
 {
 	if (supervisor != new_supervisor) {
+		RemoveSupervisor();
 		supervisor = new_supervisor;
 		new_supervisor->AppointSubordinate(this);
 	}
