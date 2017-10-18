@@ -16,3 +16,14 @@ void Manager::AppointSubordinate(Teamleader* new_subordinate)
 		new_subordinate->AppointSupervisor(this);
 	}
 }
+
+void Manager::RemoveSubordinate(Teamleader* subordinate)
+{
+	std::vector<Teamleader*>::iterator it;
+	for (it = subordinates.begin(); it != subordinates.end(); it++)
+		if (*it == subordinate) {
+			subordinates.erase(it);
+			subordinate->RemoveSupervisor();
+			break;
+		}
+}

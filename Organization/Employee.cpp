@@ -34,6 +34,20 @@ void Employee::UpdateExperience(int new_experience)
 
 std::string Employee::GetPersonalInfo()
 {
-	return last_name;
+	return last_name + ' ' + first_name + ", " + email;
 }
+
+void Employee::SetFirstName(std::string new_first_name)
+{
+	first_name = new_first_name;
+}
+void Employee::SetLastName(std::string new_last_name)
+{
+	last_name = new_last_name;
+}
+void Employee::SetEmail(std::string new_email)
+{
+	email = new_email;
+}
+
 

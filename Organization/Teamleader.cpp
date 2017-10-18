@@ -28,3 +28,23 @@ void Teamleader::AppointSupervisor(Manager* new_supervisor)
 	}
 }
 
+void Teamleader::RemoveSubordinate(Programmer* subordinate)
+{
+	std::vector<Programmer*>::iterator it;
+	for (it = subordinates.begin(); it != subordinates.end(); it++)
+		if (*it == subordinate) {
+			subordinates.erase(it);
+			subordinate->RemoveSupervisor();
+			break;
+		}
+}
+
+void Teamleader::RemoveSupervisor()
+{
+	if (supervisor != nullptr) {
+		supervisor = nullptr;
+		supervisor->RemoveSubordinate(this);
+	}
+}
+
+

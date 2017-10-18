@@ -10,6 +10,7 @@ public:
 	Programmer(Teamleader* supervisor, const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
 
 	void AppointSupervisor(Teamleader* new_supervisor);
+	void RemoveSupervisor();
 private:
 	Teamleader* supervisor;
 };

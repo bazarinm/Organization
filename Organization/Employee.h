@@ -18,6 +18,9 @@ public:
 	virtual void UpdateExperience(int new_experience) override;
 
 	virtual std::string GetPersonalInfo() override;
+	virtual void SetFirstName(std::string new_first_name) override;
+	virtual void SetLastName(std::string new_last_name) override;
+	virtual void SetEmail(std::string new_email) override;
 private:
 	std::string first_name;
 	std::string last_name;
