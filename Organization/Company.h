@@ -3,11 +3,14 @@
 
 #include <vector>
 #include <string>
+
 #include "Manager.h"
 #include "Teamleader.h"
 #include "Programmer.h"
+#include "HR.h"
+#include "Accountant.h"
 
-//using ID = void*;
+using ID = void*;
 
 class Company
 {
@@ -16,37 +19,37 @@ public:
 	Company(const std::string& name);
 	~Company();
 
-	Manager* CreateManager(const std::string& first_name,
-		                   const std::string& last_name,
-						   const std::string& email, unsigned int wage);
-	Teamleader* CreateTeamleader(int supervisor, const std::string& first_name, 
-								 const std::string& last_name, const std::string& email, unsigned int wage);
-	Programmer* CreateProgrammer(int supervisor, const std::string& first_name, 
-								 const std::string& last_name, const std::string& email, unsigned int wage);
+	Employee* CreateManager(const std::string& first_name,
+		                    const std::string& last_name,
+						    const std::string& email, unsigned int wage);
+	Employee* CreateTeamleader(Employee* supervisor, const std::string& first_name,
+							   const std::string& last_name, const std::string& email, unsigned int wage);
+	Employee* CreateProgrammer(Employee* supervisor, const std::string& first_name,
+							   const std::string& last_name, const std::string& email, unsigned int wage);
 
-	void DeleteManager(int manager);
-	void DeleteTeamleader(int teamleader);
-	void DeleteProgrammer(int programmer);
+	void DeleteManager(Employee* manager);
+	void DeleteTeamleader(Employee* teamleader);
+	void DeleteProgrammer(Employee* programmer);
 
-	void AppointToManager(int manager, int teamleader);
-	void AppointToTeamleader(int teamleader, int programmer);
+	void AppointToManager(Employee* manager, Employee* teamleader);
+	void AppointToTeamleader(Employee* teamleader, Employee* programmer);
 
-	std::vector<Manager*> ListManagers() const;
-	std::vector<Teamleader*> ListTeamleaders() const;
-	std::vector<Programmer*> ListProgrammers() const;
+	Manager* GetManager(Employee* manager) const;
+	Teamleader* GetTeamleader(Employee* teamleader) const;
+	Programmer* GetProgrammer(Employee* programmer) const;
 
-	Manager* GetManager(int manager) const;
-	Teamleader* GetTeamleader(int teamleader) const;
-	Programmer* GetProgrammer(int programmer) const;
+	HR* GetHrAccess(Employee* employee) const;
+	Accountant* GetAccountingAccess(Employee* employee) const;
 
-	std::vector<Teamleader*> ListManagerSubordinates(int manager) const ;
-	std::vector<Programmer*> ListTeamleaderSubordinates(int teamleader) const;
+	//std::vector<Teamleader*> ListManagerSubordinates(ID manager) const;
+	//std::vector<Programmer*> ListTeamleaderSubordinates(ID teamleader) const;
 
-	Manager* GetTeamleaderSupervisor(int teamleader) const;
-	Teamleader* GetProgrammerSupervisor(int programmer) const;
+	//Manager* GetTeamleaderSupervisor(ID teamleader) const;
+	//Teamleader* GetProgrammerSupervisor(ID programmer) const;
 
-	std::vector<HR*> GetHrAccess() const ;
-	std::vector<Accountant*> GetAccountingAcess() const;
+	//std::vector<Manager*> ListManagers() const;
+	//std::vector<Teamleader*> ListTeamleaders() const;
+	//std::vector<Programmer*> ListProgrammers() const;
 private:
 	std::string name;
 	std::vector<Manager*> managers;
