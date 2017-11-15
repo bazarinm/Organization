@@ -1,36 +1,30 @@
 #include <vector>
 #include <string>
 #include <iostream>
-//#include "Teamleader.h"
-//#include "Manager.h"
-//#include "Programmer.h"
-#include "Accountant.h"
-#include "HR.h"
+
 #include "Company.h"
 
 void main()
 {
 	Company my_company("Nova Development");
-	std::vector<HR*> for_hr;
-	std::vector<Accountant*> for_acc;
 
-	my_company.CreateManager("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
-	my_company.CreateTeamleader(0, "Andrey", "Yaushev", "nomail@nomail.no", 3100);
-	my_company.CreateProgrammer(0, "Name", "Surname", "kek111@yandex.com", 2300);
-	//my_company.DeleteTeamleader(0);
-	my_company.ListManagerSubordinates(0);
+	Employee* mymanager = my_company.CreateManager("Mikhail", "Bazarin", "bazarinm@gmail.com", 65000);
+	Employee* myteamleader = my_company.CreateTeamleader(mymanager, "Andrey", "Yaushev", "nomail@nomail.no", 45000);
+	Employee* myteamleader2 = my_company.CreateTeamleader(mymanager, "Vova", "Smirnov", "email@email.em", 45000);
+	Employee* myprogrammer = my_company.CreateProgrammer(myteamleader, "Name", "Surname", "kek111@yandex.com", 30000);
+	my_company.AppointToTeamleader(myteamleader2, myprogrammer);
+	my_company.AppointToTeamleader(myteamleader, myprogrammer);
+	my_company.AppointToTeamleader(myteamleader2, myprogrammer);
+	//my_company.AppointToTeamleader(myteamleader2, myprogrammer);
+	//Employee* another = my_company.CreateProgrammer(myteamleader2, "Name", "Surname", "kek111@yandex.com", 2300);
 
-	for_hr = my_company.GetHrAccess();
-	for_acc = my_company.GetAccountingAcess();
-	std::cout << for_hr.at(0)->GetPersonalInfo() << std::endl;
-	std::cout << for_hr.at(1)->GetPersonalInfo() << std::endl;
-	for_acc.at(0)->UpdateExperience(5);
-	int my_salary = for_acc.at(0)->CalculateSalary();
-	for_acc.at(1)->SetWage(2600);
-	for_hr.at(1)->SetFirstName("Kolya");
-	for_hr.at(1)->SetLastName("Ivanov");
-	std::cout << for_hr.at(1)->GetPersonalInfo() << std::endl;
-	std::cout << my_company.GetProgrammer(0)->GetPersonalInfo() << std::endl;
+	std::cout << my_company.GetHrAccess(mymanager)->GetPersonalInfo() << std::endl;
+	my_company.GetAccountingAccess(myteamleader)->UpdateExperience(5);
+	std::cout << my_company.GetAccountingAccess(myteamleader)->CalculateSalary() << std::endl;
+	my_company.GetHrAccess(myprogrammer)->SetFirstName("Kolya");
+	my_company.GetHrAccess(myprogrammer)->SetLastName("Ivanov");
+	std::cout << my_company.GetHrAccess(myprogrammer)->GetPersonalInfo() << std::endl;
+	std::cout << myprogrammer->GetPersonalInfo() << std::endl;
 
 	int n; std::cin >> n;
 }

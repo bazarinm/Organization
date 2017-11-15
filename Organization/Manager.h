@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "Employee.h"
+
 class Teamleader;
 
 class Manager : public Employee
