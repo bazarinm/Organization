@@ -23,7 +23,9 @@ Company::~Company()
 		DeleteManager(managers.back());
 }
 
-Employee* Company::CreateManager(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage)
+Employee* Company::CreateManager(const std::string& first_name, 
+								 const std::string& last_name, 
+								 const std::string& email, unsigned int wage)
 {
 	std::vector<Manager*>::iterator it;
 	for (it = managers.begin(); it != managers.end(); it++)
@@ -38,7 +40,10 @@ Employee* Company::CreateManager(const std::string& first_name, const std::strin
 	return new_manager;
 }
 
-Employee* Company::CreateTeamleader(Employee* supervisor_, const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage)
+Employee* Company::CreateTeamleader(Employee* supervisor_, 
+									const std::string& first_name, 
+									const std::string& last_name, 
+									const std::string& email, unsigned int wage)
 {
 	std::vector<Teamleader*>::iterator it;
 	for (it = teamleaders.begin(); it != teamleaders.end(); it++)
@@ -54,7 +59,10 @@ Employee* Company::CreateTeamleader(Employee* supervisor_, const std::string& fi
 	return new_teamleader;
 }
 
-Employee* Company::CreateProgrammer(Employee* supervisor_, const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage)
+Employee* Company::CreateProgrammer(Employee* supervisor_, 
+									const std::string& first_name, 
+									const std::string& last_name, 
+									const std::string& email, unsigned int wage)
 {
 	std::vector<Programmer*>::iterator it;
 	for (it = programmers.begin(); it != programmers.end(); it++)
