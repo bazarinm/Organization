@@ -10,8 +10,6 @@
 #include "HR.h"
 #include "Accountant.h"
 
-using ID = void*;
-
 class Company
 {
 public:
