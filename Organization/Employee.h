@@ -10,13 +10,13 @@ class Employee: public Accountant, public HR
 public:
 	Employee(const std::string& first_name, const std::string& last_name, const std::string& email, unsigned int wage);
 
-	virtual int GetWage() override;
-	virtual int GetExperience() override;
-	virtual int CalculateSalary() override;
+	virtual int GetWage() const override;
+	virtual int GetExperience() const override;
+	virtual int CalculateSalary() const override;
 	virtual void SetWage(int new_wage) override;
 	virtual void UpdateExperience(int new_experience) override;
 
-	virtual std::string GetPersonalInfo() override;
+	virtual std::string GetPersonalInfo() const override;
 	virtual void SetFirstName(const std::string& new_first_name) override;
 	virtual void SetLastName(const std::string& new_last_name) override;
 	virtual void SetEmail(const std::string& new_email) override;

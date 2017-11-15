@@ -13,7 +13,7 @@ public:
 
 	void AppointSubordinate(Teamleader* new_subordinate);
 	void RemoveSubordinate(Teamleader* subordinate);
-	std::vector<Teamleader*> ListSubordinates();
+	std::vector<Teamleader*> ListSubordinates() const;
 private:
 	std::vector<Teamleader*> subordinates;
 };

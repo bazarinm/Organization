@@ -13,7 +13,7 @@ public:
 
 	void AppointSupervisor(Teamleader* new_supervisor);
 	void RemoveSupervisor();
-	Teamleader* GetSupervisor();
+	Teamleader* GetSupervisor() const;
 private:
 	Teamleader* supervisor;
 };

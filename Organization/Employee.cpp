@@ -7,17 +7,17 @@ Employee::Employee(const std::string& first_name_, const std::string& last_name_
 {}
 
 
-int Employee::GetWage()
+int Employee::GetWage() const
 {
 	return wage;
 }
 
-int Employee::GetExperience()
+int Employee::GetExperience() const
 {
 	return experience;
 }
 
-int Employee::CalculateSalary()
+int Employee::CalculateSalary() const
 {
 	return wage*experience;
 }
@@ -32,7 +32,7 @@ void Employee::UpdateExperience(int new_experience)
 	experience = new_experience;
 }
 
-std::string Employee::GetPersonalInfo()
+std::string Employee::GetPersonalInfo() const
 {
 	return last_name + ' ' + first_name + ", " + email;
 }

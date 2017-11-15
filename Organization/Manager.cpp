@@ -30,7 +30,7 @@ void Manager::RemoveSubordinate(Teamleader* subordinate)
 		}
 }
 
-std::vector<Teamleader*> Manager::ListSubordinates()
+std::vector<Teamleader*> Manager::ListSubordinates() const
 {
 	return subordinates;
 }

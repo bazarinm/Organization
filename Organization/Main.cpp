@@ -17,7 +17,7 @@ void main()
 	my_company.CreateManager("Mikhail", "Bazarin", "bazarinm@gmail.com", 4000);
 	my_company.CreateTeamleader(0, "Andrey", "Yaushev", "nomail@nomail.no", 3100);
 	my_company.CreateProgrammer(0, "Name", "Surname", "kek111@yandex.com", 2300);
-	my_company.DeleteTeamleader(0);
+	//my_company.DeleteTeamleader(0);
 	my_company.ListManagerSubordinates(0);
 
 	for_hr = my_company.GetHrAccess();

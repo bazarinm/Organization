@@ -55,7 +55,7 @@ Programmer* Company::CreateProgrammer(int supervisor_, const std::string& first_
 
 void Company::DeleteManager(int manager_)
 {
-	Manager* manager = managers.at(manager_);
+	Manager* manager = (Manager*)manager_;
 	std::vector<Teamleader*>::iterator jt;
 	std::vector<Teamleader*> subordinates = manager->ListSubordinates();
 	for (jt = subordinates.begin(); jt != subordinates.end(); jt++)
@@ -137,65 +137,65 @@ void Company::AppointToTeamleader(int teamleader_, int programmer_)
 	teamleader->AppointSubordinate(programmer);
 }
 
-std::vector<Manager*> Company::ListManagers()
+std::vector<Manager*> Company::ListManagers() const
 {
 	return managers;
 }
 
-std::vector<Teamleader*> Company::ListTeamleaders()
+std::vector<Teamleader*> Company::ListTeamleaders() const
 {
 	return teamleaders;
 }
 
-std::vector<Programmer*> Company::ListProgrammers()
+std::vector<Programmer*> Company::ListProgrammers() const
 {
 	return programmers;
 }
 
-Manager* Company::GetManager(int manager_)
+Manager* Company::GetManager(int manager_) const
 {
 	return managers.at(manager_);
 }
 
-Teamleader* Company::GetTeamleader(int teamleader_)
+Teamleader* Company::GetTeamleader(int teamleader_) const
 {
 	return teamleaders.at(teamleader_);
 }
 
-Programmer* Company::GetProgrammer(int programmer_)
+Programmer* Company::GetProgrammer(int programmer_) const
 {
 	return programmers.at(programmer_);
 }
 
-std::vector<Teamleader*> Company::ListManagerSubordinates(int manager_)
+std::vector<Teamleader*> Company::ListManagerSubordinates(int manager_) const
 {
 	Manager* manager = managers.at(manager_);
 	return manager->ListSubordinates();
 }
 
-std::vector<Programmer*> Company::ListTeamleaderSubordinates(int teamleader_)
+std::vector<Programmer*> Company::ListTeamleaderSubordinates(int teamleader_) const
 {
 	Teamleader* teamleader = teamleaders.at(teamleader_);
 	return teamleader->ListSubordinates();
 }
 
-Manager* Company::GetTeamleaderSupervisor(int teamleader_)
+Manager* Company::GetTeamleaderSupervisor(int teamleader_) const
 {
 	Teamleader* teamleader = teamleaders.at(teamleader_);
 	return teamleader->GetSupervisor();
 }
-Teamleader* Company::GetProgrammerSupervisor(int programmer_)
+Teamleader* Company::GetProgrammerSupervisor(int programmer_) const
 {
 	Programmer* programmer = programmers.at(programmer_);
 	return programmer->GetSupervisor();
 }
 
-std::vector<HR*> Company::GetHrAccess()
+std::vector<HR*> Company::GetHrAccess() const
 {
 	return for_hr;
 }
 
-std::vector<Accountant*> Company::GetAccountingAcess()
+std::vector<Accountant*> Company::GetAccountingAcess() const
 {
 	return for_acc;
 }

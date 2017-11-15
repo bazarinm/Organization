@@ -26,7 +26,7 @@ void Programmer::RemoveSupervisor()
 	}
 }
 
-Teamleader* Programmer::GetSupervisor()
+Teamleader* Programmer::GetSupervisor() const
 {
 	return supervisor;
 }

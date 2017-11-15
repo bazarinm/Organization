@@ -51,12 +51,12 @@ void Teamleader::RemoveSupervisor()
 	}
 }
 
-std::vector<Programmer*> Teamleader::ListSubordinates()
+std::vector<Programmer*> Teamleader::ListSubordinates() const
 {
 	return subordinates;
 }
 
-Manager* Teamleader::GetSupervisor()
+Manager* Teamleader::GetSupervisor() const
 {
 	return supervisor;
 }
